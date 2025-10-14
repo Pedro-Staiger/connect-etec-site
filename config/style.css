@@ -271,7 +271,7 @@
     form #div-status img {
         width: 30px;
         height: auto;
-        animation: spin 0.5s ease-out infinite;
+        animation: spin 1s ease-out infinite;
     }
 
     footer {

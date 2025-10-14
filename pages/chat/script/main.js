@@ -1,4 +1,5 @@
 const socket = io("https://connect-etec-server.onrender.com");
+let usuarioAtual = localStorage.getItem("userId")
 
 // Recebe mensagens anteriores do servidor
 socket.on('previousMessages', messages => {
@@ -30,8 +31,15 @@ function renderMessage(message) {
         return;
     }
 
+    // Verifica se é mensagem do usuário atual
+    const isMyMessage = message.userId === usuarioAtual;
+
     const divMensagem = document.createElement("div");
     divMensagem.setAttribute("class", "mensagem");
+
+    if (isMyMessage) {
+        divMensagem.setAttribute("class", "mensagem minhaMensagem");
+    }
 
     const h2Autor = document.createElement("h2");
     h2Autor.textContent = message.usuario.username.toUpperCase();
@@ -48,6 +56,9 @@ function renderMessage(message) {
     divMensagem.appendChild(pMensagem);
     divMensagem.appendChild(pData);
 
+    if (message.userId === localStorage.getItem("userId")) {
+
+    }
     chat.appendChild(divMensagem);
 
     // Scroll automático para baixo
@@ -57,14 +68,13 @@ function renderMessage(message) {
 }
 //Função para enviar mensagens
 function sendMessage() {
-    const userId = localStorage.getItem("userId");
     const userColor = localStorage.getItem("userColor");
     const username = localStorage.getItem("username");
-    content = String(document.querySelector("textarea").value.trim());
+    const content = String(document.querySelector("textarea").value.trim());
 
-    if (userId != "" && userColor != "" && username !== "" && content != "") {
+    if (usuarioAtual != "" && userColor != "" && username !== "" && content != "") {
         const message = {
-            userId,
+            usuarioAtual,
             content
         }
 
