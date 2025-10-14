@@ -74,7 +74,7 @@ function sendMessage() {
 
     if (usuarioAtual != "" && userColor != "" && username !== "" && content != "") {
         const message = {
-            usuarioAtual,
+            userId: usuarioAtual,
             content
         }
 
