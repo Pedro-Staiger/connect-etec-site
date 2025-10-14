@@ -9,7 +9,7 @@ function formSwitch(formAtual) {
     for (input of inputs) {
         input.value = null;
     }
-    
+
     divStatus.style.display = "none";
     label.textContent = "";
     label.style.color = "var(--txt-color3)";
@@ -124,57 +124,63 @@ function cadastro() {
     const accessCode = String(document.querySelector("#input-accessCode").value);
 
     if (username != "" && email != "" && color !== "" && password !== "" && accessCode != "") {
-        if (email.includes("@")) {
-            const usuario = { username, email, color, password, accessCode };
-            divStatus.style.display = "flex";
-            label.style.color = "var(--txt-color3)";
-            label.textContent = "Carregando...";
-            loader.style.display = "flex";
-            fetch("https://connect-etec-server.onrender.com/api/userCreate", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify(usuario),
-            })
-                .then((response) => {
-                    if (!response.ok) {
-                        label.textContent = "Erro ao criar usuário, tente novamente";
-                        label.style.color = "var(--label-red)";
+        if (username.length <= 25 && email.length <= 50 && password.length <= 50) {
+            if (email.includes("@")) {
+                const usuario = { username, email, color, password, accessCode };
+                divStatus.style.display = "flex";
+                label.style.color = "var(--txt-color3)";
+                label.textContent = "Carregando...";
+                loader.style.display = "flex";
+                fetch("https://connect-etec-server.onrender.com/api/userCreate", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify(usuario),
+                })
+                    .then((response) => {
+                        if (!response.ok) {
+                            label.textContent = "Erro ao criar usuário, tente novamente";
+                            label.style.color = "var(--label-red)";
+                            loader.style.display = "none";
+                            // Se o status da resposta não for 200–299, lança erro
+                            throw new Error("Erro na requisição: " + response.status);
+                        }
+                        return response.json(); // Se for JSON no corpo da resposta
+                    })
+                    .then((data) => {
+                        // Sucesso: pode usar os dados retornados
+                        console.log("Resposta da API:", data);
+                        label.textContent = "Usuário criado com sucesso";
+                        label.style.color = "var(--label-green)";
                         loader.style.display = "none";
-                        // Se o status da resposta não for 200–299, lança erro
-                        throw new Error("Erro na requisição: " + response.status);
-                    }
-                    return response.json(); // Se for JSON no corpo da resposta
-                })
-                .then((data) => {
-                    // Sucesso: pode usar os dados retornados
-                    console.log("Resposta da API:", data);
-                    label.textContent = "Usuário criado com sucesso";
-                    label.style.color = "var(--label-green)";
-                    loader.style.display = "none";
-                    setTimeout(() => {
-                        divStatus.style.display = "none";
-                        label.textContent = "";
-                        label.style.color = "var(--txt-color3)";
-                        formSwitch("cadastro");
-                    }, 2000);
-                })
-                .catch((error) => {
-                    // Erro na requisição
-                    console.error("Detalhes do erro:", error);
-                    label.textContent = "Erro ao criar usuário, tente novamente mais tarde";
-                    label.style.color = "red";
-                    loader.style.display = "none";
-                });
+                        setTimeout(() => {
+                            divStatus.style.display = "none";
+                            label.textContent = "";
+                            label.style.color = "var(--txt-color3)";
+                            formSwitch("cadastro");
+                        }, 2000);
+                    })
+                    .catch((error) => {
+                        // Erro na requisição
+                        console.error("Detalhes do erro:", error);
+                        label.textContent = "Erro ao criar usuário, tente novamente mais tarde";
+                        label.style.color = "red";
+                        loader.style.display = "none";
+                    });
+            } else {
+                divStatus.style.display = "flex";
+                label.style.color = "var(--label-red)";
+                label.textContent = "Insira um e-mail válido";
+            }
         } else {
             divStatus.style.display = "flex";
-            divStatus.style.color = "var(--label-red)";
-            label.textContent = "Insira um e-mail válido";
+            label.style.color = "var(--label-red)";
+            label.textContent = "Você ultrapassou o limite de caracteres";
         }
     } else {
         divStatus.style.display = "flex";
-        divStatus.style.color = "var(--label-red)";
+        label.style.color = "var(--label-red)";
         label.textContent = "Preencha os campos corretamente";
     }
 }
