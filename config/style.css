@@ -1,0 +1,412 @@
+@media all {
+    /* Variáveis */
+    :root {
+        --bg-color1: #212529;
+        --bg-color2: #1c1c1e;
+        --bg-color3: #343a40;
+        --txt-color1: #f8f9fa;
+        --txt-color2: #dee2e6;
+        --txt-color3: #ced4da;
+        --label-green: #7cb518;
+        --label-red: #da1e37;
+    }
+
+    /* Animações */
+    @keyframes fade-in {
+        0% {
+            transform: scale(0.9);
+            opacity: 0;
+        }
+
+        100% {
+            transform: scale(1);
+            opacity: 1;
+        }
+    }
+
+    @keyframes fade-out {
+        0% {
+            transform: scale(1);
+            opacity: 1;
+        }
+
+        100% {
+            transform: scale(0.9);
+            opacity: 0;
+        }
+    }
+
+    @keyframes spin {
+        100% {
+            transform: rotate(360deg);
+        }
+    }
+
+    /* General styles for all devices */
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    html,
+    body {
+        width: 100%;
+        max-width: 100dvw;
+        height: 100%;
+        max-height: 100dvh;
+        display: flex;
+        flex-direction: column;
+        justify-content: start;
+        align-items: center;
+        background-image: url("../pictures/bg.jfif");
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+
+    header {
+        width: 100%;
+        height: 15%;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        backdrop-filter: blur(50px);
+        opacity: 80%;
+    }
+
+    header h1 {
+        font-family: "Poppins", sans-serif;
+        font-size: 2rem;
+        color: var(--txt-color1);
+    }
+
+    main {
+        width: 100%;
+        height: 100%;
+        margin-top: 25px;
+        overflow-y: auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: start;
+        align-items: center;
+        gap: 50px;
+    }
+
+    main::-webkit-scrollbar {
+        display: none;
+    }
+
+    .container {
+        width: auto;
+        max-width: 50%;
+        height: auto;
+        padding: 1.5rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: start;
+        backdrop-filter: blur(20px);
+        box-shadow: 0 0 20px var(--bg-color2);
+    }
+
+    .container h2 {
+        font-family: "Poppins", sans-serif;
+        font-size: 1.5rem;
+        color: var(--txt-color1);
+    }
+
+    .container p {
+        font-family: arial;
+        font-size: 1.2rem;
+        color: var(--txt-color2);
+    }
+
+    .container li {
+        margin-left: 1.2rem;
+    }
+
+    .container li::marker {
+        color: var(--txt-color2);
+    }
+
+    .container a {
+        font-family: arial;
+        font-size: 1.2rem;
+        font-weight: bold;
+        color: var(--txt-color3);
+        text-decoration: none;
+        transition: 0.3s ease-out;
+    } .container a:hover {
+        color: var(--txt-color1);
+    }
+
+    form {
+        width: 30%;
+        height: auto;
+        padding: 1.5rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        backdrop-filter: blur(20px);
+        box-shadow: 0 0 20px var(--bg-color2);
+        transition: 0.25s ease-out;
+    }
+
+    form h2 {
+        font-family: "Poppins", sans-serif;
+        font-size: 2.2rem;
+        color: var(--txt-color1);
+    }
+
+    form div {
+        width: 100%;
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+    }
+
+    form div div {
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+    }
+
+    form input {
+        width: 60%;
+        height: 30px;
+        padding: 1rem;
+        background: none;
+        border: none;
+        border-bottom: 2px solid var(--bg-color2);
+        outline: none;
+        font-family: "Poppins", sans-serif;
+        font-size: 1rem;
+        color: var(--txt-color2);
+        transition: 0.3s ease-out;
+    } form input:focus {
+        border-bottom: 2px solid var(--txt-color3);
+    }
+
+    form label {
+        font-family: "Poppins", sans-serif;
+        font-size: 0.8rem;
+        color: var(--txt-color3);
+    }
+
+    #input-color {
+        width: 32.5%;
+        padding: 0;
+        border: none;
+    } #input-color:focus {
+        border: none;
+    }
+
+    form button {
+        width: 60%;
+        height: 35px;
+        background-color: #000;
+        box-shadow: 0 0 30px var(--bg-color2);
+        border: none;
+        font-family: "Poppins", sans-serif;
+        font-size: 1rem;
+        color: var(--txt-color3);
+        cursor: pointer;
+        transition: 0.3s ease-out;
+    } form button:hover {
+        background-color: var(--bg-color3);
+    }
+
+    form #div-btn {
+        width: 60%;
+        height: auto;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    form #div-btn button {
+        width: auto;
+        height: auto;
+        background: none;
+        box-shadow: none;
+        font-family: "Poppins", sans-serif;
+        font-size: 1rem;
+        color: var(--txt-color3);
+        cursor: pointer;
+        transition: 0.3s ease-out;
+    } form #div-btn button:hover {
+        color: var(--txt-color1);
+    }
+
+    #div-cadastro {
+        display: none;
+    }
+
+    form #div-status {
+        width: 60%;
+        height: auto;
+        margin-top: 20px;
+        display: none;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    form #div-status #label {
+        font-family: "Poppins", sans-serif;
+        font-size: 0.9rem;
+        color: var(--txt-color3);
+    }
+
+    form #div-status img {
+        width: 30px;
+        height: auto;
+        animation: spin 0.5s ease-out infinite;
+    }
+
+    footer {
+        width: 100%;
+        height: auto;
+        padding: 1rem;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        backdrop-filter: blur(50px);
+        opacity: 80%;
+    }
+
+    footer h2 {
+        font-family: "Poppins", sans-serif;
+        font-size: 1.4rem;
+        color: var(--txt-color1);
+        opacity: 80%;
+    }
+}
+
+
+@media only screen and (max-width: 599px) {
+    /* Styles for smartphones */
+    .container {
+        width: auto;
+        max-width: 85%;
+    }
+
+    form {
+        width: 85%;
+    }
+
+    form h2 {
+        font-size: 1.8rem;
+    }
+
+    form input {
+        width: 100%;
+    }
+
+    #input-color {
+        width: 50%;
+        padding: 0;
+        border: none;
+    }
+
+    form button {
+        width: 100%;
+    }
+
+    form #div-btn {
+        width: 100%;
+    }
+
+    form #div-btn button {
+        font-size: 0.8rem;
+    }
+
+    form #div-status {
+        width: 100%;
+    }
+}
+
+@media only screen and (min-width: 600px) and (max-width: 899px) {
+    /* Styles for smartphones in landscape */
+}
+
+@media only screen and (min-width: 600px) and (max-width: 899px) {
+    /* Styles for tablets */
+}
+
+@media only screen and (min-width: 900px) and (max-width: 1199px) {
+    /* Styles for tablets in landscape */
+}
+
+@media only screen and (min-width: 1200px) and (max-width: 1440px) {
+    /* Styles for small laptops */
+    form {
+        width: 40%;
+    }
+
+    form input {
+        width: 80%;
+    }
+
+    #input-color {
+        width: 50%;
+        padding: 0;
+        border: none;
+    }
+
+    form button {
+        width: 80%;
+    }
+
+    form #div-btn {
+        width: 80%;
+    }
+
+    form #div-status {
+        width: 80%;
+    }
+}
+
+@media only screen and (min-width: 1440px) {
+    /* Styles for desktops and larger laptops */
+}
+
+@media only screen and (min-width: 1920px) {
+    /* Styles for large screens and monitors */
+    form {
+        width: 35%;
+    }
+
+    form input {
+        width: 80%;
+    }
+
+    #input-color {
+        width: 50%;
+        padding: 0;
+        border: none;
+    }
+
+    form button {
+        width: 80%;
+    }
+
+    form #div-btn {
+        width: 80%;
+    }
+
+    form #div-status {
+        width: 80%;
+    }
+}

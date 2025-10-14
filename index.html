@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connect ETEC</title>
+    <link rel="stylesheet" href="config/style.css">
+    <!--Fonte Archivo Black-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap" rel="stylesheet">
+    <!--Fonte Poppins-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <script type="text/javascript" src="script/main.js" defer></script>
+    <!--Estilização da barra de navegação (Android)-->
+    <meta name="theme-color" content="#1c1c1e">
+</head>
+
+<body>
+    <header>
+        <h1>Connect ETEC</h1>
+    </header>
+    <main>
+        <div class="container">
+            <h2>O que é o Connect ETEC?🤔</h2>
+            <p>O Connect ETEC é um projeto feito para fins de estudo, que possibilita um chat virtual entre alunos da
+                ETEC, diretamente pelo navegador. Você pode criar seu usuário, e com o código de acesso já pode utilizar nosso chat! ;)</p>
+        </div>
+        <div class="container">
+            <h2>Quem pode usar?🤨</h2>
+            <p>Praticamente qualquer aluno que se interessar pela plataforma, basta conversar com o Desenvolvedor do projeto para obter o código de acesso.</p>
+        </div>
+        <div class="container">
+            <h2>Avisos para um uso consciente⚠️</h2>
+            <p><b>Leia com atenção as seguintes informações antes de utilizar a plataforma:</b> Esse projeto é um protótipo funcional, mas criado para estudos. Os servidores utilizados são serviços gratuitos, portanto podem apresentar certa lentidão. <b>NÃO</b> utilize dados verídicos ou semelhantes a contas de outros serviços (Isso se aplica na senha. Na minha concepção o e-mail pode ser um verdadeiro mesmo), pois nosso servidor não apresenta todos protocolos de segurança necessários.</p>
+        </div>
+        <div class="container">
+            <h2>Quem desenvolveu a plataforma?🤓</h2>
+            <p>O responsável pelo desenvolvimento da plataforma foi o aluno Pedro Rodrigues Staiger. As tecnologias utilizadas foram:</p>
+            <ul>
+                <li>
+                    <p>HTML</p>
+                </li>
+                <li>
+                    <p>CSS</p>
+                </li>
+                <li>
+                    <p>Javascript</p>
+                </li>
+                <li>
+                    <p>Node JS</p>
+                </li>
+                <li>
+                    <p>Mongo DB</p>
+                </li>
+            </ul>
+            <br>
+            <a href="https://github.com/Pedro-Staiger" target="_blank">👉Link do GitHub</a>
+        </div>
+        <form autocomplete="off">
+            <div id="div-login">
+                <h2>Acesse sua conta</h2>
+                <div><input type="text" id="input-email-login" placeholder="E-mail"></div>
+                <div><input type="password" id="input-password-login" placeholder="Senha"></div>
+                <button type="button" onclick="login()">Entrar</button>
+                <div id="div-btn">
+                    <button type="button" onclick="passwordVisibility('login')">Ver senha</button>
+                    <button type="button" onclick="formSwitch('login')">Ainda não tenho uma conta</button>
+                </div>
+            </div>
+            <div id="div-cadastro">
+                <h2>Crie um usuário</h2>
+                <div><input type="text" id="input-username" placeholder="Username"></div>
+                <div><input type="text" id="input-email-register" placeholder="E-mail"></div>
+                <div><label>Cor do username:</label><input type="color" id="input-color"></div>
+                <div><input type="password" id="input-password-register" placeholder="Senha"></div>
+                <div><input type="text" id="input-accessCode" placeholder="Código de acesso"></div>
+                <button type="button" onclick="cadastro()">Cadastrar</button>
+                <div id="div-btn">
+                    <button type="button" onclick="passwordVisibility('cadastro')">Ver senha</button>
+                    <button type="button" onclick="formSwitch('cadastro')">já tenho uma conta</button>
+                </div>
+            </div>
+            <div id="div-status">
+                <p id="label"></p>
+                <img src="pictures/loader.png">
+            </div>
+        </form>
+        <footer>
+            <h2>Connect ETEC ®</h2>
+        </footer>
+    </main>
+</body>
+</html>
