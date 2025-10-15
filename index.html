@@ -37,7 +37,7 @@
         </div>
         <div class="container">
             <h2>Avisos para um uso consciente⚠️</h2>
-            <p><b>Leia com atenção as seguintes informações antes de utilizar a plataforma:</b> Esse projeto é um protótipo funcional, mas criado para estudos. Os servidores utilizados são serviços gratuitos, portanto podem apresentar certa lentidão. <b>NÃO</b> utilize dados verídicos ou semelhantes a contas de outros serviços (Isso se aplica na senha. Na minha concepção o e-mail pode ser um verdadeiro mesmo), pois nosso servidor não apresenta todos protocolos de segurança necessários.</p>
+            <p><b>Leia com atenção as seguintes informações antes de utilizar a plataforma:</b> Esse projeto é um protótipo funcional, mas criado para estudos. Os servidores utilizados são serviços gratuitos, portanto podem apresentar certa lentidão. <b>NÃO</b> utilize dados verídicos ou semelhantes a contas de outros serviços (Isso se aplica na senha. Na minha concepção o e-mail pode ser um verdadeiro mesmo), pois nosso servidor não apresenta todos protocolos de segurança necessários. Caso tenha alguma dúvida, sugestão ou um erro para reportar, entre em contato pessoalmente ou pelo email.</p>
         </div>
         <div class="container">
             <h2>Quem desenvolveu a plataforma?🤓</h2>
@@ -66,10 +66,9 @@
             <div id="div-login">
                 <h2>Acesse sua conta</h2>
                 <div><input type="text" id="input-email-login" placeholder="E-mail"></div>
-                <div><input type="password" id="input-password-login" placeholder="Senha"></div>
+                <div class="div-password"><input type="password" id="input-password-login" placeholder="Senha"><img src="pictures/hidden.png" onclick="passwordVisibility('login', this)"></div>
                 <button type="button" onclick="login()">Entrar</button>
                 <div id="div-btn">
-                    <button type="button" onclick="passwordVisibility('login')">Ver senha</button>
                     <button type="button" onclick="formSwitch('login')">Ainda não tenho uma conta</button>
                 </div>
             </div>
@@ -78,11 +77,10 @@
                 <div><input type="text" id="input-username" placeholder="Username"></div>
                 <div><input type="text" id="input-email-register" placeholder="E-mail"></div>
                 <div><label>Cor do username:</label><input type="color" id="input-color"></div>
-                <div><input type="password" id="input-password-register" placeholder="Senha"></div>
+                <div class="div-password"><input type="password" id="input-password-register" placeholder="Senha"><img src="pictures/hidden.png" onclick="passwordVisibility('cadastro', this)"></div>
                 <div><input type="text" id="input-accessCode" placeholder="Código de acesso"></div>
                 <button type="button" onclick="cadastro()">Cadastrar</button>
                 <div id="div-btn">
-                    <button type="button" onclick="passwordVisibility('cadastro')">Ver senha</button>
                     <button type="button" onclick="formSwitch('cadastro')">já tenho uma conta</button>
                 </div>
             </div>

@@ -1,4 +1,5 @@
 @media all {
+
     /* Variáveis */
     :root {
         --bg-color1: #212529;
@@ -137,7 +138,9 @@
         color: var(--txt-color3);
         text-decoration: none;
         transition: 0.3s ease-out;
-    } .container a:hover {
+    }
+
+    .container a:hover {
         color: var(--txt-color1);
     }
 
@@ -173,6 +176,7 @@
     form div div {
         width: 100%;
         max-width: 100%;
+        overflow-x: hidden;
         height: auto;
         display: flex;
         flex-direction: row;
@@ -192,7 +196,9 @@
         font-size: 1rem;
         color: var(--txt-color2);
         transition: 0.3s ease-out;
-    } form input:focus {
+    }
+
+    form input:focus {
         border-bottom: 2px solid var(--txt-color3);
     }
 
@@ -206,8 +212,29 @@
         width: 32.5%;
         padding: 0;
         border: none;
-    } #input-color:focus {
+    }
+
+    #input-color:focus {
         border: none;
+    }
+
+    .div-password {
+        width: 100%;
+        max-width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .div-password input {
+        width: 80%;
+    }
+
+    .div-password img {
+        width: 18%;
+        cursor: pointer;
     }
 
     form button {
@@ -221,7 +248,9 @@
         color: var(--txt-color3);
         cursor: pointer;
         transition: 0.3s ease-out;
-    } form button:hover {
+    }
+
+    form button:hover {
         background-color: var(--bg-color3);
     }
 
@@ -244,7 +273,9 @@
         color: var(--txt-color3);
         cursor: pointer;
         transition: 0.3s ease-out;
-    } form #div-btn button:hover {
+    }
+
+    form #div-btn button:hover {
         color: var(--txt-color1);
     }
 
@@ -269,6 +300,7 @@
     }
 
     form #div-status img {
+        display: none;
         width: 30px;
         height: auto;
         animation: spin 1s ease-out infinite;
@@ -296,7 +328,16 @@
 
 
 @media only screen and (max-width: 599px) {
+
     /* Styles for smartphones */
+    header {
+        height: 10%;
+    }
+
+    main {
+        margin-top: 15px;
+    }
+
     .container {
         width: auto;
         max-width: 85%;
@@ -320,6 +361,14 @@
         border: none;
     }
 
+    .div-password input {
+        width: 90%;
+    }
+
+    .div-password img {
+        width: 10%;
+    }
+
     form button {
         width: 100%;
     }
@@ -338,7 +387,62 @@
 }
 
 @media only screen and (min-width: 600px) and (max-width: 899px) {
+
     /* Styles for smartphones in landscape */
+    header {
+        height: 15%;
+    }
+
+    main {
+        margin-top: 10px;
+    }
+
+    .container {
+        width: auto;
+        max-width: 85%;
+    }
+
+    form {
+        width: 60%;
+    }
+
+    form h2 {
+        font-size: 1.8rem;
+    }
+
+    form input {
+        width: 100%;
+    }
+
+    #input-color {
+        width: 50%;
+        padding: 0;
+        border: none;
+    }
+
+    .div-password input {
+        width: 90%;
+    }
+
+    .div-password img {
+        width: 10%;
+    }
+
+    form button {
+        width: 100%;
+    }
+
+    form #div-btn {
+        width: 100%;
+    }
+
+    form #div-btn button {
+        font-size: 0.8rem;
+    }
+
+    form #div-status {
+        width: 100%;
+    }
 }
 
 @media only screen and (min-width: 600px) and (max-width: 899px) {
@@ -350,6 +454,7 @@
 }
 
 @media only screen and (min-width: 1200px) and (max-width: 1440px) {
+
     /* Styles for small laptops */
     form {
         width: 40%;
@@ -363,6 +468,14 @@
         width: 50%;
         padding: 0;
         border: none;
+    }
+
+    .div-password input {
+        width: 70%;
+    }
+
+    .div-password img {
+        width: 7.5%;
     }
 
     form button {
@@ -383,6 +496,7 @@
 }
 
 @media only screen and (min-width: 1920px) {
+
     /* Styles for large screens and monitors */
     form {
         width: 35%;
@@ -396,6 +510,25 @@
         width: 50%;
         padding: 0;
         border: none;
+    }
+
+    .div-password {
+        width: 100%;
+        max-width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .div-password input {
+        width: 74%;
+    }
+
+    .div-password img {
+        width: 6%;
+        cursor: pointer;
     }
 
     form button {

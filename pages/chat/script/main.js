@@ -1,11 +1,18 @@
 const socket = io("https://connect-etec-server.onrender.com");
-let usuarioAtual = localStorage.getItem("userId")
+let usuarioAtual = localStorage.getItem("userId");
+
+document.querySelector("textarea").addEventListener('keydown', (event) => {
+    if (event.key === "Enter" && !event.shiftKey) {
+        event.preventDefault(); // Evita quebra de linha
+        sendMessage();
+    }
+});
 
 // Recebe mensagens anteriores do servidor
 socket.on('previousMessages', messages => {
     if (messages.length >= 1) {
         for (message of messages) {
-            renderMessage(message);
+            renderMessage(message, false);
         };
 
         // Scroll para baixo após carregar mensagens anteriores
@@ -18,11 +25,11 @@ socket.on('previousMessages', messages => {
 
 // Recebe mensagens enviadas por outros usuários
 socket.on('receivedMessage', message => {
-    renderMessage(message);
+    renderMessage(message, true);
 });
 
 //Função para criar gráficamente as mensagens
-function renderMessage(message) {
+function renderMessage(message, animation) {
     const chat = document.querySelector("#chat");
 
     // Proteção: se não tiver usuario, não renderiza
@@ -56,10 +63,11 @@ function renderMessage(message) {
     divMensagem.appendChild(pMensagem);
     divMensagem.appendChild(pData);
 
-    if (message.userId === localStorage.getItem("userId")) {
-
-    }
     chat.appendChild(divMensagem);
+
+    if (animation == true) {
+        divMensagem.style.animation = "fade-in 0.4s ease-out forwards";
+    }
 
     // Scroll automático para baixo
     setTimeout(() => {
@@ -78,7 +86,7 @@ function sendMessage() {
             content
         }
 
-        document.querySelector("textarea").value = ""
+        document.querySelector("textarea").value = "";
 
         socket.emit('sendMessage', message);
     }

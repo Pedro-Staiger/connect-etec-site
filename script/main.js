@@ -37,7 +37,7 @@ function formSwitch(formAtual) {
 }
 
 //Função que altera a visibilidade do input da senha ("ver senha")
-function passwordVisibility(formAtual) {
+function passwordVisibility(formAtual, botao) {
     let inputSenha = null;
     if (formAtual === "login") {
         inputSenha = document.querySelector("#input-password-login");
@@ -49,11 +49,29 @@ function passwordVisibility(formAtual) {
 
     if (inputSenha.getAttribute("type") === "password") {
         inputSenha.setAttribute("type", "text");
+        botao.setAttribute("src", "pictures/eye.png");
     } else {
         inputSenha.setAttribute("type", "password");
+        botao.setAttribute("src", "pictures/hidden.png");
     }
 
     inputSenha.value = senha;
+}
+
+for (input of document.querySelectorAll("#div-login div input")) {
+    input.addEventListener('keydown', (event) => {
+        if (event.key === 'Enter') {
+            login();
+        }
+    });
+}
+
+for (input of document.querySelectorAll("#div-cadastro div input")) {
+    input.addEventListener('keydown', (event) => {
+        if (event.key === 'Enter') {
+            cadastro();
+        }
+    });
 }
 
 //Função que valida login do usuário (manda requisição pro servidor)
@@ -83,7 +101,6 @@ function login() {
                 return response.json(); // aqui transforma a resposta em JSON
             })
                 .then(data => {
-                    console.log('Dados recebidos:', data); // aqui tem os dados reais do backend
                     label.textContent = "Login efetuado com sucesso";
                     label.style.color = "var(--label-green)";
                     loader.style.display = "none";
@@ -103,12 +120,12 @@ function login() {
                 });
         } else {
             divStatus.style.display = "flex";
-            divStatus.style.color = "var(--label-red)";
+            label.style.color = "var(--label-red)";
             label.textContent = "Insira um e-mail válido";
         }
     } else {
         divStatus.style.display = "flex";
-        divStatus.style.color = "var(--label-red)";
+        label.style.color = "var(--label-red)";
         label.textContent = "Preencha os campos corretamente";
     }
 
@@ -150,7 +167,6 @@ function cadastro() {
                     })
                     .then((data) => {
                         // Sucesso: pode usar os dados retornados
-                        console.log("Resposta da API:", data);
                         label.textContent = "Usuário criado com sucesso";
                         label.style.color = "var(--label-green)";
                         loader.style.display = "none";

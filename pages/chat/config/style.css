@@ -246,10 +246,12 @@
 
     #txt-field textarea {
         width: 75%;
+        height: 40px;
     }
 
     #txt-field button {
         width: 25%;
+        height: 40px;
     }
 
     .mensagem {
@@ -267,7 +269,48 @@
 }
 
 @media only screen and (min-width: 600px) and (max-width: 899px) {
+
     /* Styles for smartphones in landscape */
+    header {
+        height: 10%;
+    }
+
+    #chat {
+        width: 90%;
+        padding: 0.3rem;
+        gap: 20px;
+    }
+
+    #txt-field {
+        width: 90%;
+    }
+
+    #txt-field textarea {
+        width: 75%;
+        height: 30px;
+    }
+
+    #txt-field button {
+        width: 25%;
+        height: 30px;
+    }
+
+    .mensagem {
+        min-width: 60%;
+        max-width: 90%;
+    }
+
+    .mensagem p {
+        font-size: 1rem;
+    }
+
+    .mensagem .data {
+        font-size: 0.8rem;
+    }
+
+    footer {
+        height: 5%;
+    }
 }
 
 @media only screen and (min-width: 600px) and (max-width: 899px) {
