@@ -58,22 +58,6 @@ function passwordVisibility(formAtual, botao) {
     inputSenha.value = senha;
 }
 
-for (input of document.querySelectorAll("#div-login div input")) {
-    input.addEventListener('keydown', (event) => {
-        if (event.key === 'Enter') {
-            login();
-        }
-    });
-}
-
-for (input of document.querySelectorAll("#div-cadastro div input")) {
-    input.addEventListener('keydown', (event) => {
-        if (event.key === 'Enter') {
-            cadastro();
-        }
-    });
-}
-
 //Função que valida login do usuário (manda requisição pro servidor)
 function login() {
     const email = String(document.querySelector("#input-email-login").value);
@@ -199,4 +183,21 @@ function cadastro() {
         label.style.color = "var(--label-red)";
         label.textContent = "Preencha os campos corretamente";
     }
+}
+
+//Adição da função de confirmação do formulário pelos inputs
+for (input of document.querySelectorAll("#div-login div input")) {
+    input.addEventListener('keydown', (event) => {
+        if (event.key === 'Enter') {
+            login();
+        }
+    });
+}
+
+for (input of document.querySelectorAll("#div-cadastro div input")) {
+    input.addEventListener('keydown', (event) => {
+        if (event.key === 'Enter') {
+            cadastro();
+        }
+    });
 }
