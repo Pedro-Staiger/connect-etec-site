@@ -91,7 +91,6 @@ function login() {
                     localStorage.setItem("userId", data.id);
                     localStorage.setItem("username", data.username);
                     localStorage.setItem("email", data.email);
-                    localStorage.setItem("userColor", data.color);
                     setTimeout(() => {
                         window.location = "/pages/chat/index.html";
                     }, 2000);

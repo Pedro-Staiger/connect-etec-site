@@ -25,7 +25,7 @@ if (usuarioAtual === null) {
 
     setTimeout(() => {
         window.location = "../../index.html";
-    },30000)
+    }, 30000)
 } else {
     const socket = io("https://connect-etec-server.onrender.com");
 
@@ -120,6 +120,12 @@ if (usuarioAtual === null) {
             event.preventDefault(); // Evita quebra de linha
             sendMessage();
         }
+    });
+
+    window.addEventListener("beforeunload", () => {
+        localStorage.removeItem("userId");
+        localStorage.removeItem("username");
+        localStorage.removeItem("email");
     });
 }
 
